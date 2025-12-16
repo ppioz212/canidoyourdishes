@@ -89,7 +89,7 @@ The GitHub Actions workflow (`.github/workflows/ci-cd.yml`) automatically:
 ### Workflow Steps
 
 1. **Checkout code** - Gets your repository code
-2. **Setup .NET** - Installs .NET 7.0 SDK
+2. **Setup .NET** - Installs .NET 8.0 SDK
 3. **Restore dependencies** - Downloads NuGet packages
 4. **Build** - Compiles your Blazor WASM app
 5. **Publish** - Creates the deployable output
@@ -235,7 +235,7 @@ Once DNS is verified:
 ### Build Failing?
 
 - Check the Actions tab for error details
-- Ensure .NET 7.0 SDK is available (the workflow handles this)
+- Ensure .NET 8.0 SDK is available (the workflow handles this)
 - Verify all project files are committed
 - Check that the project builds locally: `dotnet build`
 

@@ -8,7 +8,7 @@ This website serves as a platform to explain my mission of supporting young fami
 
 ## Technology Stack
 
-- **.NET 7.0** - Modern .NET framework
+- **.NET 8.0** - Latest .NET framework
 - **Blazor WebAssembly** - Client-side web framework using C# and Razor
 - **GitHub Actions** - CI/CD pipeline for automated builds and deployments
 
@@ -16,7 +16,7 @@ This website serves as a platform to explain my mission of supporting young fami
 
 ### Prerequisites
 
-- [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet/7.0) or later
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later
 
 ### Running Locally
 
@@ -44,7 +44,7 @@ This website serves as a platform to explain my mission of supporting young fami
 dotnet publish -c Release
 ```
 
-The output will be in the `bin/Release/net7.0/publish/wwwroot` directory, ready for deployment to any static hosting service.
+The output will be in the `bin/Release/net8.0/publish/wwwroot` directory, ready for deployment to any static hosting service.
 
 ## Setup and Deployment
 
