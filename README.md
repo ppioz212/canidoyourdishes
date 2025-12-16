@@ -46,26 +46,16 @@ dotnet publish -c Release
 
 The output will be in the `bin/Release/net7.0/publish/wwwroot` directory, ready for deployment to any static hosting service.
 
-## CI/CD
+## Setup and Deployment
 
-This project uses GitHub Actions for continuous integration and deployment. The workflow:
+For complete setup instructions, including GitHub repository setup, CI/CD configuration, and deployment, see **[SETUP.md](SETUP.md)**.
 
+This project uses GitHub Actions for continuous integration and deployment:
 - Builds the project on every push
-- Runs on pull requests
-- Publishes the Blazor WASM app as static files
-- Can be configured to deploy to various hosting platforms (GitHub Pages, Azure Static Web Apps, etc.)
+- Automatically deploys to GitHub Pages on pushes to `main`
+- Runs on pull requests for testing
 
-See `.github/workflows/ci-cd.yml` for the complete workflow configuration.
-
-## Deployment
-
-The application can be deployed to any static hosting service that supports static websites:
-
-- **GitHub Pages** - Free hosting for public repositories
-- **Azure Static Web Apps** - Integrated with GitHub Actions
-- **Netlify** - Easy deployment with drag-and-drop
-- **Vercel** - Fast global CDN
-- **Any web server** - Just upload the `wwwroot` folder contents
+The application is configured to work with the default GitHub Pages URL: `https://YOUR_USERNAME.github.io/canidoyourdishes/`
 
 ## Project Structure
 
