@@ -36,26 +36,26 @@ git branch -M main
 git push -u origin main
 ```
 
-## Step 3: Verify GitHub Actions
+## Step 3: Enable GitHub Pages
+
+1. Go to your repository Settings on GitHub
+2. Scroll down to "Pages" in the left sidebar
+3. Under "Source", select **"GitHub Actions"** (not "Deploy from a branch")
+4. Save the settings
+
+## Step 4: Verify GitHub Actions & Deployment
 
 1. Go to your repository on GitHub
 2. Click on the "Actions" tab
 3. You should see the workflow running (or completed)
 4. The workflow will:
-   - Build your Blazor WASM app
+   - Build your Blazor WASM app on every push and pull request
+   - **Deploy to GitHub Pages** automatically on pushes to `main` branch
    - Create artifacts with the published files
-   - Run on every push and pull request
 
-## Step 4: Enable GitHub Pages (Optional - for hosting)
-
-If you want to deploy to GitHub Pages:
-
-1. Go to your repository Settings
-2. Scroll down to "Pages" in the left sidebar
-3. Under "Source", select "GitHub Actions"
-4. Uncomment the `deploy` job in `.github/workflows/ci-cd.yml`
-5. Commit and push the changes
-6. The site will be available at: `https://YOUR_USERNAME.github.io/canidoyourdishes/`
+5. Once the deployment completes, your site will be available at:
+   - `https://YOUR_USERNAME.github.io/canidoyourdishes/`
+   - Or check the workflow run for the exact URL
 
 ## Step 5: Custom Domain Setup (When Ready)
 

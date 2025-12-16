@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -35,36 +35,37 @@ jobs:
         path: ./publish/wwwroot
         retention-days: 7
 
-  # Optional: Deploy to GitHub Pages
-  # Uncomment and configure when ready to deploy
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-  #   permissions:
-  #     contents: read
-  #     pages: write
-  #     id-token: write
-  #   
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@v4
-  #     
-  #   - name: Download artifacts
-  #     uses: actions/download-artifact@v4
-  #     with:
-  #       name: blazor-wasm-app
-  #       path: ./deploy
-  #       
-  #   - name: Setup Pages
-  #     uses: actions/configure-pages@v4
-  #     
-  #   - name: Upload artifact
-  #     uses: actions/upload-pages-artifact@v4
-  #     with:
-  #       path: './deploy'
-  #       
-  #   - name: Deploy to GitHub Pages
-  #     id: deployment
-  #     uses: actions/deploy-pages@v4
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: blazor-wasm-app
+        path: ./deploy
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: './deploy'
+      
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 
