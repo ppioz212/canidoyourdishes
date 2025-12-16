@@ -57,6 +57,10 @@ jobs:
         name: blazor-wasm-app
         path: ./deploy
       
+    - name: Fix base path for GitHub Pages
+      run: |
+        sed -i 's|<base href="/" />|<base href="/canidoyourdishes/" />|g' ./deploy/index.html
+      
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
